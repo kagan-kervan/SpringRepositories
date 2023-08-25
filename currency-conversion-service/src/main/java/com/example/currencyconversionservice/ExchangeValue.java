@@ -5,18 +5,20 @@ public class ExchangeValue
     private Long id;
     private String from;
     private String to;
-    private BigDecimal conversionMultiple;
+
+    private double value;
+    private double conversionMultiple;
 
     public ExchangeValue()
     {
 
     }
-    public ExchangeValue(Long id, String from, String to, BigDecimal conversionMultiple)
+    public ExchangeValue(Long id, String from, String to,double value)
     {
         this.id = id;
         this.from = from;
         this.to = to;
-        this.conversionMultiple = conversionMultiple;
+        this.value = value;
     }
 
     public Long getId() {
@@ -31,7 +33,7 @@ public class ExchangeValue
         return to;
     }
 
-    public BigDecimal getConversionMultiple() {
-        return conversionMultiple;
+    public double getValue(){
+        return value;
     }
 }
