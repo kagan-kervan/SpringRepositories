@@ -13,12 +13,12 @@ public class QuoteController {
     @Autowired
     private QuoteService quoteService;
 
-    @GetMapping("/")
+    @GetMapping("/get")
     public List<Quote> GetAllQuote(){
         return quoteService.getAllQuotes();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
     public ResponseEntity<Quote> GetQuoteByID(@PathVariable Long id){
         Quote shirt = quoteService.getQuoteByID(id);
         if(shirt == null){
@@ -27,6 +27,14 @@ public class QuoteController {
         return  ResponseEntity.ok(shirt);
     }
 
+    @GetMapping("/get/from/public")
+    public List<Quote> GetQuoteFromPublicAPI(){
+        return quoteService.AcquireQuotesFromPublicAPI();
+    }
+    @GetMapping("/get/from/kanye")
+    public Quote GetQuoteFromKanyeAPI(){
+        return quoteService.AcquireQuoteFromKanye();
+    }
     @PostMapping("/add")
     public Quote CreateQuote(@RequestBody Quote quote){
         return quoteService.saveQuote(quote);

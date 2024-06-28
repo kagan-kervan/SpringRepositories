@@ -8,4 +8,7 @@ public interface QuoteServiceInterface {
     Quote saveQuote(Quote quote);
     Quote updateQuote(Long id, Quote quote);
     Quote deleteQuote(Long id);
+
+    List<Quote> AcquireQuotesFromPublicAPI();
+    Quote AcquireQuoteFromKanye();
 }

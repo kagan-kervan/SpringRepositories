@@ -10,4 +10,11 @@ public class DataAcquireServiceApplication {
 		SpringApplication.run(DataAcquireServiceApplication.class, args);
 	}
 
+	public static void startApplication() {
+		String[] args = new String[] {
+				"--spring.application.name=DataAcquireService",
+				"--server.port=8081"
+		};
+		main(args);
+	}
 }
