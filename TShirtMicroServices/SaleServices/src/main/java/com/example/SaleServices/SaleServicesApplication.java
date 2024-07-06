@@ -13,7 +13,7 @@ public class SaleServicesApplication {
 	public static void startApplication() {
 		String[] args = new String[] {
 				"--spring.application.name=SaleServices",
-				"--server.port=8086",
+				"--server.port=8080",
 				"--spring.datasource.url=jdbc:mariadb://localhost:3316/tshirt_service?allowPublicKeyRetrieval=true&useSSL=false",
 				"--spring.datasource.username=tshirt_user",
 				"--spring.datasource.password=password",
