@@ -9,50 +9,11 @@
 # https://github.com/docker/awesome-compose
 version: "3.7"
 services:
-  api_service:
+  auth_service:
     build: .
     restart: always
     ports:
-      - "8080:8080"
-    depends_on:
-      - maria_db
-      - auth-service
-      - acquire-service
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mariadb://172.20.0.2/shirt_service?allowPublicKeyRetrieval=true&useSSL=false
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: password
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
-      SPRING_JPA_SHOW_SQL: "true"
-  maria_db:
-    image: mariadb:11.2.4-jammy
-    container_name: mdb2
-    ports:
-        - "3306:3306"
-    environment:
-        MARIADB_ROOT_PASSWORD: password
-        MARIADB_DATABASE: shirt_service
-  auth-service:
-    image: authuserservice-auth_service:latest
-    container_name: authService
-    ports:
-      - "8085:8085"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mariadb://172.20.0.2/tshirt_service_auth?allowPublicKeyRetrieval=true&useSSL=false
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: password
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
-      SPRING_JPA_SHOW_SQL: "true"
-  acquire-service:
-    image: dataacquireservice-auth_service:latest
-    container_name: dataAcquireService
-    ports:
       - "8081:8081"
-    environment:
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: password
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
-      SPRING_JPA_SHOW_SQL: "true"
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
 # start the database before your application. The `db-data` volume persists the
