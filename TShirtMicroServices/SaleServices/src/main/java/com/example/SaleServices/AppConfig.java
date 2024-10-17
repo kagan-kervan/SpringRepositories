@@ -10,4 +10,12 @@ public class AppConfig {
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }
+
+    private com.example.SaleServices.proto.TShirtProtoServiceGrpc.TShirtProtoServiceBlockingStub tshirtServiceStub;
+
+    @Bean
+    public com.example.SaleServices.proto.TShirtProtoServiceGrpc.TShirtProtoServiceBlockingStub tshirtServiceStub() {
+        return tshirtServiceStub;
+    }
+
 }
